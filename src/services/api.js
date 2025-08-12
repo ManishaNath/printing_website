@@ -1,0 +1,15 @@
+// /frontend/src/services/api.js
+const BASE = process.env.REACT_APP_API_URL?.replace(/\/$/, "") || ""; // why: configurable backend
+
+export async function submitEnquiry(payload) {
+  const res = await fetch(`${BASE}/api/enquiries`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+  if (!res.ok) {
+    const data = await res.json().catch(() => ({}));
+    throw new Error(data?.error || `Request failed: ${res.status}`);
+  }
+  return res.json();
+}

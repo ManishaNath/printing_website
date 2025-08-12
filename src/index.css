@@ -1,0 +1,153 @@
+/* /frontend/src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand: #0f172a; /* slate-900 */
+  --accent: #f59e0b; /* amber-500 */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  @apply text-gray-900 bg-white;
+}
+.container {
+  @apply mx-auto max-w-6xl px-4;
+}
+.btn {
+  @apply inline-flex items-center rounded-xl border px-4 py-2 text-sm font-medium transition;
+}
+.btn-primary {
+  @apply bg-black text-white hover:opacity-90 shadow;
+}
+.btn-ghost {
+  @apply border hover:shadow;
+}
+.card {
+  @apply rounded-2xl border bg-white shadow-sm;
+}
+
+/* Header branding: diagonal gradient behind + bottom ribbon */
+.header-diagonal {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+.header-diagonal > .container {
+  position: relative;
+}
+.header-diagonal::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background: linear-gradient(
+    135deg,
+    rgba(245, 158, 11, 0.2),
+    rgba(59, 130, 246, 0.2)
+  );
+}
+.header-ribbon {
+  position: relative;
+}
+.header-ribbon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 6px;
+  z-index: -1;
+  background: linear-gradient(90deg, #f59e0b, #3b82f6, #10b981);
+  filter: saturate(1.15);
+}
+.header-glass {
+  @apply bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/70;
+}
+
+/* Soft utilities */
+.brand-gradient {
+  background: radial-gradient(
+      1200px 400px at 10% -10%,
+      rgba(245, 158, 11, 0.15),
+      transparent
+    ),
+    radial-gradient(
+      800px 300px at 90% -10%,
+      rgba(59, 130, 246, 0.12),
+      transparent
+    );
+}
+.shadow-soft {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+/* Gradient text helper to avoid descender clipping across browsers */
+.gradient-text {
+  -webkit-text-fill-color: transparent; /* why: Safari */
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+/* Ensures extra room below descenders when using gradient text */
+.descender-fix {
+  display: inline-block;
+  padding-bottom: 0.18em;
+}
+
+/* Hero: add colorful soft glows without heavy images */
+.hero-gradient {
+  position: relative;
+}
+.hero-gradient::before,
+.hero-gradient::after {
+  content: "";
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(60px);
+  opacity: 0.35;
+  pointer-events: none;
+}
+.hero-gradient::before {
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(
+    closest-side,
+    rgba(245, 158, 11, 0.45),
+    transparent
+  );
+  top: -140px;
+  left: -140px;
+}
+.hero-gradient::after {
+  width: 560px;
+  height: 560px;
+  background: radial-gradient(
+    closest-side,
+    rgba(59, 130, 246, 0.45),
+    transparent
+  );
+  bottom: -160px;
+  right: -160px;
+}
+
+/* Accent underline bar used under headings if needed */
+.accent-underline {
+  position: relative;
+  display: inline-block;
+}
+.accent-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.25rem;
+  height: 0.5rem;
+  border-radius: 0.5rem;
+  background: linear-gradient(90deg, #f59e0b, #3b82f6);
+  z-index: -1;
+}
