@@ -2,23 +2,10 @@
   command = "npm run build"
   publish = "build"
 
-# FRONTEND → BACKEND proxy
-# Your backend is on Netlify at https://srilakshmipowerprintersbe.netlify.app/
-# If your backend is a Netlify Function named "api" wrapping Express (recommended):
-#   Frontend request:  /api/enquiries
-#   Proxied to:        /.netlify/functions/api/api/enquiries   (note the double /api)
-#   This keeps your Express route as app.use('/api/enquiries', ...)
+# Frontend -> Backend proxy:
+# POST /api/enquiries (on the FE site) -> /.netlify/functions/api/enquiries (on the BE site)
 [[redirects]]
   from = "/api/*"
-  to = "https://srilakshmipowerprintersbe.netlify.app/.netlify/functions/api/api/:splat"
+  to   = "https://srilakshmipowerprintersbe.netlify.app/.netlify/functions/api/:splat"
   status = 200
-  force = true
-
-# If your backend exposes functions with a different name, change the path accordingly, e.g.:
-# to = "https://srilakshmipowerprintersbe.netlify.app/.netlify/functions/enquiries/:splat"
-
-# Optional: redirect www → root if you add a custom domain
-# [[redirects]]
-#   from = "https://www.yourdomain.com/*"
-#   to = "https://yourdomain.com/:splat"
-#   status = 301
+  force  = true
