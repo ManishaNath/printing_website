@@ -1,4 +1,4 @@
-// /frontend/src/hooks/useForm.js
+// D:\GITHUB\printing_website_frontend\src\hooks\useForm.js
 import { useMemo, useState } from "react";
 
 export const SERVICES = [
@@ -8,7 +8,6 @@ export const SERVICES = [
   "Catalogue",
   "Tags",
   "Brochures",
-  "Flex printing",
   "U Board",
   "Invitation card",
   "Bags (Paper/Cloth/Jute)",
@@ -19,12 +18,15 @@ export const SERVICES = [
   "Outdoor Publicity Material",
 ];
 
+const PHONE_RE = /^[+]?[\d\s\-()]{7,20}$/;
+
 export function useEnquiryForm() {
   const [form, setForm] = useState({
     name: "",
     company: "",
     email: "",
     phone: "",
+    city: "",        // NEW
     service: "",
     quantity: "",
     notes: "",
@@ -33,15 +35,17 @@ export function useEnquiryForm() {
   const errors = useMemo(() => {
     const e = {};
     if (!form.name.trim()) e.name = "Name is required";
-    if (!form.email.trim() && !form.phone.trim()) {
+    const hasEmail = !!form.email.trim();
+    const hasPhone = !!form.phone.trim();
+    if (!hasEmail && !hasPhone) {
       e.email = "Provide email or phone";
       e.phone = "Provide email or phone";
     }
-    if (form.email && !/^\S+@\S+\.[\w-]+$/.test(form.email))
-      e.email = "Invalid email";
+    if (hasEmail && !(form.email.includes("@") && form.email.includes("."))) e.email = "Invalid email";
+    if (hasPhone && !PHONE_RE.test(form.phone)) e.phone = "Invalid phone number";
     if (!form.service) e.service = "Select a service";
-    if (!form.quantity || Number(form.quantity) <= 0)
-      e.quantity = "Quantity must be > 0";
+    if (!form.quantity || Number(form.quantity) <= 0) e.quantity = "Quantity must be > 0";
+    if (form.city && form.city.length > 80) e.city = "City too long";
     return e;
   }, [form]);
 
