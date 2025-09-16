@@ -13,7 +13,7 @@ const CLIENTS = [
 
 export default function Clients() {
   return (
-    <section id="clients" className="bg-gray-50">
+    <section id="clients" className="bg-[#f6f1ff]">
       <div className="container py-16">
         <h2 className="text-2xl font-bold">Clients</h2>
         <p className="mt-2 text-gray-600">
@@ -30,3 +30,4 @@ export default function Clients() {
     </section>
   );
 }
+
