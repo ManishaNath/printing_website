@@ -20,7 +20,7 @@ export default function Header() {
           <img
             src={logo}
             alt="Sri Lakshmi Power Printers"
-            className="h-12 w-12 md:h-14 md:w-14 rounded-xl border object-contain bg-white"
+            className="h-12 w-12 md:h-14 md:w-14 rounded-xl border object-contain bg-transparent"
             onError={(e) => {
               e.currentTarget.outerHTML =
                 '<svg width="36" height="36" viewBox="0 0 24 24" aria-hidden fill="currentColor"><path d="M5 3h14v4H5zM3 9h18v4H3zM5 15h14v6H5z"/></svg>';
@@ -46,3 +46,4 @@ export default function Header() {
     </header>
   );
 }
+
