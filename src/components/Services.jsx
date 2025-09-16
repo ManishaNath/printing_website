@@ -17,7 +17,7 @@ const PRODUCT_RANGE = [
 
 export default function Services() {
   return (
-    <section id="services" className="bg-gray-50">
+    <section id="services" className="bg-[#f4f7ff]">
       <div className="container py-16">
         <h2 className="text-2xl font-bold">Product Range & Services</h2>
         <p className="mt-2 text-gray-600">
@@ -38,3 +38,4 @@ export default function Services() {
     </section>
   );
 }
+
