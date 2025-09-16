@@ -2,7 +2,7 @@
 export default function Contact() {
   return (
     <section id="contact" className="bg-gray-50">
-      <div className="container py-16">
+      <div className="container pt-16 pb-12 md:pb-16">
         <h2 className="text-2xl font-bold">Contact</h2>
         <div className="mt-6 grid gap-6 md:grid-cols-3">
           <div className="card p-4">
@@ -33,7 +33,7 @@ export default function Contact() {
             </div>
           </div>
         </div>
-        <div className="mt-6">
+        <div className="mt-8 space-y-4">
           <iframe
             title="Sri Lakshmi Power Printers Map"
             className="w-full h-72 rounded-2xl border"
@@ -41,11 +41,11 @@ export default function Contact() {
             referrerPolicy="no-referrer-when-downgrade"
             src="https://www.google.com/maps?q=No.12,+Denkanikottai+Rd,+Prakash+Nagar,+Hosur,+Tamil+Nadu+635109&output=embed"
           ></iframe>
+          <p className="text-center text-xs text-gray-500">
+            © {new Date().getFullYear()} Sri Lakshmi Power Printers. All rights
+            reserved.
+          </p>
         </div>
-        <p className="mt-6 text-xs text-gray-500">
-          © {new Date().getFullYear()} Sri Lakshmi Power Printers. All rights
-          reserved.
-        </p>
       </div>
       {/* <button
         id="kollect-pay-btn"
