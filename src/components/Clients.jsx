@@ -2,8 +2,8 @@
 const CLIENTS = [
   "LARSEN & TOUBRO",
   "TITAN INDUSTRIES",
-  "TITAN JEWELLERY",
-  "TITAN PED",
+  "SEVENTH DAY ADVENTIST OFFICE",
+  "TATA ELECTRONICS",
   "ASHOK LEYLAND",
   "HOWDEN SOLYVENT",
   "MINDA GROUP",
@@ -30,4 +30,5 @@ export default function Clients() {
     </section>
   );
 }
+
 
