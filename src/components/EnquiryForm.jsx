@@ -26,7 +26,7 @@ export default function EnquiryForm() {
   }
 
   return (
-    <section id="enquiry" className="bg-white">
+    <section id="enquiry" className="bg-[#f3fbf7]">
       <div className="container py-16">
         <h2 className="text-2xl font-bold">Enquiry</h2>
         <p className="mt-2 text-gray-600">Tell us what you need. We'll share a tailored quote.</p>
@@ -137,3 +137,4 @@ export default function EnquiryForm() {
     </section>
   );
 }
+
